@@ -1,11 +1,16 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model users {
+  id       Int    @id(map: "users_pk") @default(autoincrement())
+  email    String @unique(map: "users_unique") @db.VarChar
+  password String @db.VarChar
+  role     String @default(dbgenerated("USER")) @db.VarChar
 }
