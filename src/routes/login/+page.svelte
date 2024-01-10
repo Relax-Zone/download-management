@@ -1,12 +1,13 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
     import axios from 'axios';
-    import { ArrowLeft } from 'lucide-svelte'
+    import { ArrowLeft , Loader2 } from 'lucide-svelte'
 
     let error :String
     let username :String
     let password :String
     let loginButton = false
+    let loginLoading = false
 
     $: if(username && password){
             loginButton = true
@@ -18,7 +19,9 @@
     async function Register(e:any){
         e.preventDefault()
         try{
+            loginLoading = await true
             const registerStatus = await axios.post('./login',{username,password})
+            loginLoading = await false
             await goto('./dashboard')
         }
         catch(err : any){
@@ -41,7 +44,11 @@
             <label for="password" class="font-bold">รหัสผ่าน</label>
             <input type="password" bind:value={password} id="password" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700" />
             {#if loginButton}
-            <button type="submit" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-gradient-to-tr from-blue-400 to-blue-800 hover:shadow-md hover:shadow-blue-500/50">เข้าสู่ระบบ</button>
+            <button type="submit" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-gradient-to-tr from-blue-400 to-blue-800 hover:shadow-md hover:shadow-blue-500/50">
+                {#if loginLoading}
+                <Loader2 class="mr-2 animate-spin"/>
+                {/if}
+                เข้าสู่ระบบ</button>
             {:else}    
             <button type="submit" class="outline-none bg-zinc-800 text-zinc-500 cursor-not-allowed  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">เข้าสู่ระบบ</button>
             {/if}

@@ -1,12 +1,14 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
     import axios from 'axios'
-    import { ArrowLeft } from 'lucide-svelte'
+    import { ArrowLeft , Loader2 } from 'lucide-svelte'
     
     let error :String
     let username :String
     let password :String
     let conPassword :String
     let regisButton = false
+    let regisLoading = false
 
     $: if(username && password && (password === conPassword)){
             regisButton = true
@@ -25,7 +27,10 @@
     async function Register(e:any){
         e.preventDefault()
         try{
+            regisLoading = await true
             const data = await axios.post("./register",{username,password})
+            await goto('./register/callback')
+            regisLoading = await false
         }
         catch(err :any){            
             error = err.response.data.err
@@ -49,7 +54,12 @@
             <label for="conpassword" class="text-white font-bold ">ยืนยันรหัสผ่าน <span class="text-sm text-zinc-400 font-[400]">กรอกรหัสผ่านอีกครั้ง</span></label>
             <input bind:value={conPassword} type="password" id="conpassword" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700" />
             {#if regisButton}
-            <button type="submit" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-gradient-to-tr from-blue-400 to-blue-800 hover:shadow-md hover:shadow-blue-500/50">สมัครสาชิก</button>
+            <button type="submit" class="text-white outline-none focus:outline-2 focus:outline-blue-600  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4 bg-gradient-to-tr from-blue-400 to-blue-800 hover:shadow-md hover:shadow-blue-500/50">
+                {#if regisLoading}
+                <Loader2 class="mr-2 animate-spin"/>
+                {/if}
+                สมัครสาชิก
+            </button>
             {:else}   
             <button type="submit" class="bg-zinc-800 text-zinc-500 cursor-not-allowed outline-none font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">สมัครสาชิก</button>
             {/if}
