@@ -5,7 +5,7 @@
 </script>
 
 <div class="min-h-screen bg-zinc-950 text-white font-line-seed-sans-th">
-    <ProgressBar class="text-blue-600" />
+    <ProgressBar class="text-blue-600 z-[9999999]" />
     <Header />
     <slot />
 </div>

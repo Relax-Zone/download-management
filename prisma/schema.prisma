@@ -14,3 +14,11 @@ model users {
   password String @db.VarChar
   role     String @default(dbgenerated("USER")) @db.VarChar
 }
+
+model works {
+  title       String @db.VarChar
+  description String @db.VarChar
+  owner       String @db.VarChar
+  auther      String @db.VarChar
+  id          Int    @id(map: "works_pk") @default(autoincrement())
+}
