@@ -26,15 +26,15 @@
 
     async function Register(e:any){
         e.preventDefault()
+        regisLoading = await true
         try{
-            regisLoading = await true
             const data = await axios.post("./register",{username,password})
             await goto('./register/callback')
-            regisLoading = await false
         }
         catch(err :any){            
             error = err.response.data.err
         }
+        regisLoading = await false
     }
 
 </script>

@@ -16,7 +16,7 @@
     </div>
     <div>
         {#each data.userWork as userWork }
-        <FileBlock title={userWork.title} description={userWork.description} auther={userWork.description} download={userWork.dashboard} />
+        <FileBlock title={userWork.title} description={userWork.description} auther={userWork.description} download={userWork.download} />
         {/each}
     </div>
 </div>

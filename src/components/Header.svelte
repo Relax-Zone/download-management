@@ -2,7 +2,7 @@
     import { DownloadCloud } from 'lucide-svelte'
 </script>
 
-<div class="p-4 flex shadow-md shadow-blue-500/50 justify-between">
+<div class="p-4 flex shadow-md shadow-blue-500/50 justify-between sticky top-0 bg-zinc-900/50 backdrop-blur-lg">
     <!-- site indentify -->
     <a href="/" class="flex font-bold text-xl items-center break-all">
         <DownloadCloud class="pr-2" stroke-width='1.2' size="2em" />

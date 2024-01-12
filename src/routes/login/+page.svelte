@@ -18,15 +18,15 @@
     
     async function Register(e:any){
         e.preventDefault()
+        loginLoading = await true
         try{
-            loginLoading = await true
             const registerStatus = await axios.post('./login',{username,password})
-            loginLoading = await false
             await goto('./dashboard')
         }
         catch(err : any){
             error = err.response.data.err
         }
+        loginLoading = await false
     }
 
 </script>
