@@ -2,6 +2,7 @@
     import FileBlock from "../../components/FileBlock.svelte";
 
     export let data
+    let search : string = ""
 </script>
 
 <div class="p-4">
@@ -14,9 +15,14 @@
             <a href="./logout" class="text-lg mb-2 mr-2 font-bold bg-gradient-to-tr from-red-400 to-red-600 hover:shadow-lg hover:shadow-red-700/80 transition px-4 py-1 rounded-full">ออกจากระบบ</a>
         </div>
     </div>
-    <div>
+    <div class="max-w-5xl mx-auto p-4 border border-zinc-800 rounded-xl">
+        <div class="flex bg-zinc-900 p-4 mb-4 rounded-lg">
+            <input bind:value={search} type="text" class="focus:outline focus:outline-blue-500 font-bold bg-transparent outline-none p-2 rounded-md border border-zinc-700" placeholder="ค้นหา" />
+        </div>
         {#each data.userWork as userWork }
+        {#if userWork.title.includes(search) }
         <FileBlock title={userWork.title} description={userWork.description} auther={userWork.description} download={userWork.download} />
+        {/if}
         {/each}
     </div>
 </div>

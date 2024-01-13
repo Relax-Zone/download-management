@@ -10,7 +10,7 @@
 <a target="_blank" href={download} class="cursor-default bg-zinc-900 p-4 rounded-xl mb-4 flex justify-between items-start flex-wrap hover:shadow-blue-500/30 hover:shadow-lg">
     <div class="flex flex-wrap w-full">
         <!-- <img class="aspect-video h-[160px] rounded-lg mr-4" src="https://www.alleycat.org/wp-content/uploads/2019/03/FELV-cat.jpg" alt=""> -->
-        <div class="aspect-video sm:h-[160px] w-full sm:w-auto rounded-lg bg-gradient-to-tr from-blue-400 to-blue-700 justify-center items-center flex mb-4" ><File size="5em" /></div>
+        <div class="aspect-video sm:h-[160px] w-full sm:w-auto rounded-lg bg-gradient-to-tr from-blue-400 to-blue-700 justify-center items-center flex sm:mb-0 mb-4" ><File size="5em" /></div>
         <div class="sm:ml-4 mb-4">
             <div class="mb-4">
                 <h2 class="bg-clip-text text-transparent bg-gradient-to-tr from-blue-400 to-blue-700 font-bold text-3xl">{title}</h2>
