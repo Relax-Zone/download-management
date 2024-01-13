@@ -66,7 +66,7 @@
             เพิ่มงาน
         </button>
         {:else}    
-        <button class="text-lg mb-2 mr-2 font-bold bg-zinc-800 text-zinc-500 cursor-not-allowed px-4 py-1 rounded-full">เพิ่มงาน</button>
+        <div class="inline-block text-lg mb-2 mr-2 font-bold bg-zinc-800 text-zinc-500 cursor-not-allowed px-4 py-1 rounded-full">เพิ่มงาน</div>
         {/if}
     </form>
 </div>

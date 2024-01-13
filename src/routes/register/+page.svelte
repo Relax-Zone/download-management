@@ -61,7 +61,7 @@
                 สมัครสาชิก
             </button>
             {:else}   
-            <button type="submit" class="bg-zinc-800 text-zinc-500 cursor-not-allowed outline-none font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">สมัครสาชิก</button>
+            <div class="bg-zinc-800 text-zinc-500 cursor-not-allowed outline-none font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">สมัครสาชิก</div>
             {/if}
         </form>
         

@@ -50,7 +50,7 @@
                 {/if}
                 เข้าสู่ระบบ</button>
             {:else}    
-            <button type="submit" class="outline-none bg-zinc-800 text-zinc-500 cursor-not-allowed  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">เข้าสู่ระบบ</button>
+            <div class="outline-none bg-zinc-800 text-zinc-500 cursor-not-allowed  font-bold flex items-center w-full justify-center p-4 rounded-lg my-4">เข้าสู่ระบบ</div>
             {/if}
         </form>
         
